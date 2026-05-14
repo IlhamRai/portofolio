@@ -218,7 +218,6 @@
       margin-bottom: 2rem;
     }
 
-    /* ===== SOCIAL ICONS ===== */
     .social-links {
       display: flex;
       gap: 0.75rem;
@@ -240,22 +239,16 @@
       letter-spacing: 0.02em;
     }
 
-    .social-link svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
+    .social-link svg { width: 16px; height: 16px; flex-shrink: 0; }
 
     .social-link.instagram {
       background: linear-gradient(135deg, #fdf6ee, #fce8d5);
       border-color: rgba(225, 120, 60, 0.35);
       color: #c45213;
     }
-
     .social-link.instagram:hover {
       background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: white;
-      border-color: transparent;
+      color: white; border-color: transparent;
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
     }
@@ -265,11 +258,8 @@
       border-color: rgba(92, 61, 36, 0.25);
       color: var(--brown-dark);
     }
-
     .social-link.tiktok:hover {
-      background: #010101;
-      color: white;
-      border-color: transparent;
+      background: #010101; color: white; border-color: transparent;
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(1, 1, 1, 0.25);
     }
@@ -279,16 +269,11 @@
       border-color: rgba(200, 60, 60, 0.25);
       color: #cc0000;
     }
-
     .social-link.youtube:hover {
-      background: #ff0000;
-      color: white;
-      border-color: transparent;
+      background: #ff0000; color: white; border-color: transparent;
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
     }
-
-    /* ===== END SOCIAL ICONS ===== */
 
     .btn-primary {
       display: inline-flex;
@@ -359,16 +344,14 @@
     }
 
     #profileImg {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
     }
 
     .photo-placeholder {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       display: none;
       flex-direction: column;
       align-items: center;
@@ -378,8 +361,7 @@
     }
 
     .photo-avatar-icon {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       background: var(--brown-mid);
       border-radius: 50%;
       display: flex;
@@ -510,12 +492,7 @@
     }
 
     .stat-number span { color: var(--accent); }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--brown-mid);
-      font-weight: 500;
-    }
+    .stat-label { font-size: 0.78rem; color: var(--brown-mid); font-weight: 500; }
 
     .about-text p {
       color: var(--brown-mid);
@@ -549,15 +526,10 @@
       margin-bottom: 0.75rem;
     }
 
-    .skill-name {
-      font-size: 0.85rem;
-      color: var(--brown-ink);
-      font-weight: 500;
-    }
+    .skill-name { font-size: 0.85rem; color: var(--brown-ink); font-weight: 500; }
 
     .skill-bar {
-      width: 100px;
-      height: 5px;
+      width: 100px; height: 5px;
       background: #ede5d8;
       border-radius: 100px;
       overflow: hidden;
@@ -576,109 +548,268 @@
       to { transform: scaleX(1); }
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+    /* =============================================
+       PROJECTS SECTION — HORIZONTAL SCROLL
+       ============================================= */
+
+    .projects-section {
+      padding: 5rem 0;
     }
 
-    .project-card {
+    .projects-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .projects-scroll-wrapper {
+      position: relative;
+    }
+
+    /* Fade edges */
+    .projects-scroll-wrapper::before,
+    .projects-scroll-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .projects-scroll-wrapper::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--cream), transparent);
+    }
+    .projects-scroll-wrapper::after {
+      right: 0;
+      background: linear-gradient(-90deg, var(--cream), transparent);
+    }
+
+    .projects-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      padding: 1rem 5rem 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      scrollbar-width: thin;
+      scrollbar-color: var(--brown-light) transparent;
+    }
+
+    .projects-track:active { cursor: grabbing; }
+
+    .projects-track::-webkit-scrollbar { height: 5px; }
+    .projects-track::-webkit-scrollbar-track { background: rgba(200,168,130,0.15); border-radius: 10px; }
+    .projects-track::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius: 10px; }
+
+    /* Scroll nav buttons */
+    .scroll-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .scroll-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(200,168,130,0.5);
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--brown-dark);
+      flex-shrink: 0;
+    }
+
+    .scroll-btn:hover {
+      background: var(--brown-dark);
+      color: var(--cream);
+      border-color: var(--brown-dark);
+      transform: scale(1.05);
+    }
+
+    .scroll-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .scroll-indicator {
+      flex: 1;
+      height: 3px;
+      background: rgba(200,168,130,0.25);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .scroll-indicator-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brown-mid), var(--accent));
+      border-radius: 100px;
+      width: 20%;
+      transition: width 0.2s ease;
+    }
+
+    /* Project Card */
+    .proj-card {
+      flex: 0 0 300px;
       background: white;
       border: 1px solid rgba(200,168,130,0.2);
       border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
-      cursor: pointer;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(92, 61, 36, 0.12);
-    }
-
-    .project-thumb {
-      height: 180px;
+      scroll-snap-align: start;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      position: relative;
-      overflow: hidden;
+      flex-direction: column;
     }
 
-    .project-thumb::after {
-      content: '';
+    .proj-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(92, 61, 36, 0.15);
+    }
+
+    .proj-thumb {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .proj-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .proj-card:hover .proj-thumb img {
+      transform: scale(1.06);
+    }
+
+    .proj-thumb-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.08));
+      background: linear-gradient(180deg, transparent 40%, rgba(46, 26, 14, 0.35));
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
-    .project-body { padding: 1.4rem; }
+    .proj-card:hover .proj-thumb-overlay {
+      opacity: 1;
+    }
 
-    .project-type {
-      font-size: 0.68rem;
+    .proj-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .proj-type {
+      font-size: 0.65rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       font-family: 'DM Mono', monospace;
     }
 
-    .project-title {
+    .proj-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--brown-dark);
       margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
-    .project-desc {
+    .proj-desc {
       font-size: 0.82rem;
       color: var(--brown-mid);
       line-height: 1.6;
       margin-bottom: 1rem;
+      /* Clamp description to 3 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .project-stack {
+    .proj-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
       margin-bottom: 1rem;
+      margin-top: auto;
     }
 
-    .stack-tag {
-      background: var(--cream);
-      border: 1px solid rgba(200,168,130,0.3);
-      color: var(--brown-dark);
+    .proj-tag {
       padding: 0.2rem 0.6rem;
       border-radius: 5px;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-family: 'DM Mono', monospace;
       font-weight: 500;
     }
 
-    .project-links { display: flex; gap: 0.7rem; }
+    .proj-tag.php { background: #dbeafe; color: #1e40af; }
+    .proj-tag.js  { background: #fef9c3; color: #854d0e; }
+    .proj-tag.tw  { background: #cffafe; color: #155e75; }
 
-    .project-link {
+    .proj-links {
+      display: flex;
+      gap: 0.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(200,168,130,0.15);
+    }
+
+    .proj-link {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--brown-dark);
       text-decoration: none;
-      border: 1px solid rgba(200,168,130,0.4);
-      padding: 0.3rem 0.7rem;
+      border: 1px solid rgba(200,168,130,0.35);
+      padding: 0.3rem 0.75rem;
       border-radius: 6px;
       transition: all 0.2s;
+      background: var(--cream);
     }
 
-    .project-link:hover {
+    .proj-link:hover {
       background: var(--brown-dark);
       color: var(--cream);
       border-color: var(--brown-dark);
     }
+
+    .proj-link.demo { background: var(--brown-dark); color: var(--cream); border-color: var(--brown-dark); }
+    .proj-link.demo:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* Card counter badge */
+    .proj-counter {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: rgba(253,246,238,0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(200,168,130,0.3);
+      color: var(--brown-dark);
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: 'DM Mono', monospace;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+    }
+
+    /* =============================================
+       END PROJECTS
+       ============================================= */
 
     .contact-wrapper {
       display: grid;
@@ -744,9 +875,7 @@
       background: var(--cream);
       border: 1px solid rgba(200,168,130,0.3);
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem;
       flex-shrink: 0;
     }
@@ -760,13 +889,8 @@
       margin-bottom: 0.2rem;
     }
 
-    .contact-detail-val {
-      font-size: 0.9rem;
-      color: var(--brown-dark);
-      font-weight: 500;
-    }
+    .contact-detail-val { font-size: 0.9rem; color: var(--brown-dark); font-weight: 500; }
 
-    /* ===== SOCIAL SECTION IN CONTACT ===== */
     .social-section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
@@ -796,21 +920,16 @@
       letter-spacing: 0.03em;
     }
 
-    .social-contact-card svg {
-      width: 28px;
-      height: 28px;
-    }
+    .social-contact-card svg { width: 28px; height: 28px; }
 
     .social-contact-card.instagram {
       background: linear-gradient(135deg, #fdf6ee, #fce8d5);
       border-color: rgba(225, 120, 60, 0.3);
       color: #c45213;
     }
-
     .social-contact-card.instagram:hover {
       background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: white;
-      border-color: transparent;
+      color: white; border-color: transparent;
       transform: translateY(-4px);
       box-shadow: 0 10px 24px rgba(220, 39, 67, 0.35);
     }
@@ -820,11 +939,8 @@
       border-color: rgba(92, 61, 36, 0.2);
       color: var(--brown-dark);
     }
-
     .social-contact-card.tiktok:hover {
-      background: #010101;
-      color: white;
-      border-color: transparent;
+      background: #010101; color: white; border-color: transparent;
       transform: translateY(-4px);
       box-shadow: 0 10px 24px rgba(1, 1, 1, 0.25);
     }
@@ -834,11 +950,8 @@
       border-color: rgba(200, 60, 60, 0.25);
       color: #cc0000;
     }
-
     .social-contact-card.youtube:hover {
-      background: #ff0000;
-      color: white;
-      border-color: transparent;
+      background: #ff0000; color: white; border-color: transparent;
       transform: translateY(-4px);
       box-shadow: 0 10px 24px rgba(255, 0, 0, 0.35);
     }
@@ -849,7 +962,6 @@
       text-align: center;
     }
 
-    /* ===== FOOTER SOCIAL ===== */
     .footer-socials {
       display: flex;
       justify-content: center;
@@ -861,8 +973,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
+      width: 38px; height: 38px;
       border-radius: 10px;
       text-decoration: none;
       transition: all 0.25s;
@@ -873,28 +984,18 @@
 
     .footer-social-btn svg { width: 18px; height: 18px; }
 
-    .footer-social-btn:hover {
-      transform: translateY(-3px);
-    }
-
+    .footer-social-btn:hover { transform: translateY(-3px); }
     .footer-social-btn.ig:hover {
       background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: white;
-      border-color: transparent;
+      color: white; border-color: transparent;
       box-shadow: 0 6px 16px rgba(220, 39, 67, 0.3);
     }
-
     .footer-social-btn.tt:hover {
-      background: #010101;
-      color: white;
-      border-color: transparent;
+      background: #010101; color: white; border-color: transparent;
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     }
-
     .footer-social-btn.yt:hover {
-      background: #ff0000;
-      color: white;
-      border-color: transparent;
+      background: #ff0000; color: white; border-color: transparent;
       box-shadow: 0 6px 16px rgba(255, 0, 0, 0.3);
     }
 
@@ -906,7 +1007,6 @@
       transform: translateY(30px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
@@ -926,10 +1026,16 @@
       .about-stat-grid { grid-template-columns: 1fr 1fr; }
       .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
       .section { padding: 3.5rem 1.2rem; }
-      .projects-grid { grid-template-columns: 1fr; }
       .skills-wrapper { padding: 2rem 1.2rem; }
       .skills-grid { grid-template-columns: 1fr; }
       .social-contact-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .proj-card { flex: 0 0 260px; }
+      .projects-track { padding: 1rem 1.5rem 2rem; }
+      .projects-scroll-wrapper::before,
+      .projects-scroll-wrapper::after { width: 40px; }
+      .projects-section { padding: 3.5rem 0; }
+      .projects-header { padding: 0 1.2rem; }
+      .scroll-nav { padding: 0 1.2rem; }
     }
 
     @media (max-width: 400px) {
@@ -937,6 +1043,7 @@
       .photo-frame { width: 180px; height: 220px; }
       .hero-cta { flex-direction: column; align-items: center; }
       .social-links { flex-direction: column; align-items: center; }
+      .proj-card { flex: 0 0 240px; }
     }
   </style>
 </head>
@@ -991,45 +1098,28 @@
           </a>
           <a href="#contact" class="btn-outline">Hubungi Saya</a>
         </div>
-
-        <!-- ===== SOCIAL MEDIA ICONS HERO ===== -->
         <div class="social-links">
           <a href="https://instagram.com/ilhamrai" target="_blank" rel="noopener noreferrer" class="social-link instagram">
-            <!-- Instagram SVG -->
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             Instagram
           </a>
           <a href="https://tiktok.com/@ilhamrai" target="_blank" rel="noopener noreferrer" class="social-link tiktok">
-            <!-- TikTok SVG -->
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.27 8.27 0 004.84 1.55V7.06a4.85 4.85 0 01-1.07-.37z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.27 8.27 0 004.84 1.55V7.06a4.85 4.85 0 01-1.07-.37z"/></svg>
             TikTok
           </a>
           <a href="https://youtube.com/@ilhamrai" target="_blank" rel="noopener noreferrer" class="social-link youtube">
-            <!-- YouTube SVG -->
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             YouTube
           </a>
         </div>
-        <!-- ===== END SOCIAL MEDIA ICONS HERO ===== -->
-
       </div>
 
       <div class="hero-photo">
         <div class="photo-frame">
           <div class="photo-bg-shape"></div>
           <div class="photo-container">
-            <img
-              id="profileImg"
-              src="its.jpg"
-              alt="M. Ilham Rai' Subagja"
-              onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex';"
-            />
+            <img id="profileImg" src="its.jpg" alt="M. Ilham Rai' Subagja"
+              onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex';" />
             <div class="photo-placeholder" id="photoPlaceholder">
               <div class="photo-avatar-icon">👤</div>
               <div class="photo-name-label">M. Ilham Rai'</div>
@@ -1119,174 +1209,215 @@
 
 <div class="divider"></div>
 
-<section id="projects" class="py-16 px-4 max-w-6xl mx-auto">
+<!-- =============================================
+     PROJECTS — HORIZONTAL SCROLL
+     ============================================= -->
+<section id="projects" class="projects-section">
 
-  <!-- HEADER -->
-  <div class="mb-10">
-    <p class="text-sm text-gray-500">// Proyek</p>
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-      Proyek yang<br>Pernah Dibuat
-    </h2>
-    <p class="text-gray-600 mt-2">
-      Kumpulan proyek yang pernah saya bangun — dari website hingga aplikasi web fullstack.
-    </p>
+  <div class="projects-header fade-up">
+    <p class="section-label">// Proyek</p>
+    <h2 class="section-title">Proyek yang<br>Pernah Dibuat</h2>
+    <p class="section-sub">Kumpulan proyek yang pernah saya bangun — dari website hingga aplikasi web fullstack.</p>
   </div>
 
-  <!-- GRID -->
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="projects-scroll-wrapper">
+    <div class="projects-track" id="projectsTrack">
 
-    <!-- CARD 1 -->
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div class="h-48 overflow-hidden">
-        <img src="rental1.png" class="w-full h-full object-cover hover:scale-105 transition">
-      </div>
-      <div class="p-5">
-        <p class="text-xs text-gray-500">Fullstack Web App PHP Native, MySQL, Tailwind CSS</p>
-        <h3 class="font-semibold text-lg text-gray-800">Rental Mobil</h3>
-        <p class="text-sm text-gray-600 mt-2">
-          Aplikasi untuk mengelola data mobil, pelanggan, transaksi, dan laporan secara otomatis.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-3">
-          <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">PHP</span>
-          <span class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
-          <span class="bg-cyan-100 text-cyan-600 text-xs px-2 py-1 rounded">Tailwind</span>
+      <!-- CARD 1 -->
+      <div class="proj-card">
+        <div class="proj-thumb">
+          <img src="rental1.png" alt="Rental Mobil" onerror="this.parentElement.style.background='linear-gradient(135deg,#c8a882,#9b6f47)'; this.style.display='none'">
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-counter">01 / 06</span>
         </div>
-        <div class="flex gap-4 mt-4 text-sm">
-          <a href="#" class="text-blue-600 hover:underline">Demo</a>
-          <a href="https://share.google/bMMAv6qzI89oOpRah" class="text-gray-700 hover:underline">GitHub</a>
+        <div class="proj-body">
+          <p class="proj-type">Fullstack Web App</p>
+          <h3 class="proj-title">Rental Mobil</h3>
+          <p class="proj-desc">Aplikasi untuk mengelola data mobil, pelanggan, transaksi, dan laporan secara otomatis.</p>
+          <div class="proj-stack">
+            <span class="proj-tag php">PHP</span>
+            <span class="proj-tag js">JavaScript</span>
+            <span class="proj-tag tw">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link demo">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+            <a href="https://share.google/bMMAv6qzI89oOpRah" class="proj-link">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
+
+      <!-- CARD 2 -->
+      <div class="proj-card">
+        <div class="proj-thumb">
+          <img src="toko2.png" alt="Toko Indonesia" onerror="this.parentElement.style.background='linear-gradient(135deg,#c8a882,#9b6f47)'; this.style.display='none'">
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-counter">02 / 06</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-type">Fullstack Web App</p>
+          <h3 class="proj-title">Toko Indonesia</h3>
+          <p class="proj-desc">Aplikasi web untuk mengelola data barang dan transaksi toko secara otomatis, dilengkapi fitur CRUD, pencarian, dan sistem login admin.</p>
+          <div class="proj-stack">
+            <span class="proj-tag php">PHP</span>
+            <span class="proj-tag js">JavaScript</span>
+            <span class="proj-tag tw">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link demo">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+            <a href="https://share.google/bMMAv6qzI89oOpRah" class="proj-link">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="proj-card">
+        <div class="proj-thumb">
+          <img src="penjualan3.png" alt="Penjualan" onerror="this.parentElement.style.background='linear-gradient(135deg,#c8a882,#9b6f47)'; this.style.display='none'">
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-counter">03 / 06</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-type">Fullstack Web App</p>
+          <h3 class="proj-title">Penjualan</h3>
+          <p class="proj-desc">Aplikasi untuk membantu mengelola aktivitas toko secara lebih terstruktur — pengelolaan barang, penambahan produk, hingga proses transaksi penjualan.</p>
+          <div class="proj-stack">
+            <span class="proj-tag php">PHP</span>
+            <span class="proj-tag js">JavaScript</span>
+            <span class="proj-tag tw">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link demo">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+            <a href="https://share.google/bMMAv6qzI89oOpRah" class="proj-link">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="proj-card">
+        <div class="proj-thumb">
+          <img src="gaji4.png" alt="Slip Gaji" onerror="this.parentElement.style.background='linear-gradient(135deg,#c8a882,#9b6f47)'; this.style.display='none'">
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-counter">04 / 06</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-type">Fullstack Web App</p>
+          <h3 class="proj-title">Aplikasi Slip Gaji</h3>
+          <p class="proj-desc">Mengelola dan menghitung slip gaji karyawan secara sederhana dengan sistem login admin. Otomatis menghitung gaji bersih dan fitur cetak slip.</p>
+          <div class="proj-stack">
+            <span class="proj-tag php">PHP</span>
+            <span class="proj-tag js">JavaScript</span>
+            <span class="proj-tag tw">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="http://localhost/ujikom/index.php" class="proj-link demo">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+            <a href="https://share.google/bMMAv6qzI89oOpRah" class="proj-link">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="proj-card">
+        <div class="proj-thumb">
+          <img src="sistem 5.png" alt="Sistem Inventaris" onerror="this.parentElement.style.background='linear-gradient(135deg,#c8a882,#9b6f47)'; this.style.display='none'">
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-counter">05 / 06</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-type">Fullstack Web App</p>
+          <h3 class="proj-title">Sistem Inventaris</h3>
+          <p class="proj-desc">Sistem inventaris dan peminjaman barang berbasis web untuk mengelola data barang, stok, dan transaksi peminjaman beserta riwayatnya.</p>
+          <div class="proj-stack">
+            <span class="proj-tag php">PHP</span>
+            <span class="proj-tag js">JavaScript</span>
+            <span class="proj-tag tw">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="http://localhost/ujikom/index.php" class="proj-link demo">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+            <a href="https://share.google/bMMAv6qzI89oOpRah" class="proj-link">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="proj-card">
+        <div class="proj-thumb">
+          <img src="nusantara6.png" alt="Hotel Nusantara" onerror="this.parentElement.style.background='linear-gradient(135deg,#c8a882,#9b6f47)'; this.style.display='none'">
+          <div class="proj-thumb-overlay"></div>
+          <span class="proj-counter">06 / 06</span>
+        </div>
+        <div class="proj-body">
+          <p class="proj-type">Fullstack Web App</p>
+          <h3 class="proj-title">Hotel Nusantara</h3>
+          <p class="proj-desc">Sistem manajemen hotel berbasis web untuk mengelola pemesanan kamar, pengelolaan data kamar, serta manajemen reservasi tamu secara digital.</p>
+          <div class="proj-stack">
+            <span class="proj-tag php">PHP</span>
+            <span class="proj-tag js">JavaScript</span>
+            <span class="proj-tag tw">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="http://localhost/ujikom/index.php" class="proj-link demo">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+            <a href="https://share.google/bMMAv6qzI89oOpRah" class="proj-link">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end projects-track -->
+  </div><!-- end scroll-wrapper -->
+
+  <!-- Scroll controls -->
+  <div class="scroll-nav">
+    <button class="scroll-btn" id="scrollLeft" onclick="scrollProjects(-1)" aria-label="Scroll kiri">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="scroll-indicator">
+      <div class="scroll-indicator-fill" id="scrollFill"></div>
     </div>
-
-    <!-- CARD 2 -->
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div class="h-48 overflow-hidden">
-        <img src="toko2.png" class="w-full h-full object-cover">
-      </div>
-      <div class="p-5">
-        <p class="text-xs text-gray-500">Fullstack Web App PHP Native, MySQL, Tailwind CSS</p>
-        <h3 class="font-semibold text-lg text-gray-800">Toko Indonesia</h3>
-        <p class="text-sm text-gray-600 mt-2">
-         Toko Indonesia adalah aplikasi web untuk mengelola data barang dan transaksi toko secara otomatis, dilengkapi fitur CRUD, pencarian, dan sistem login admin.
-          <div class="flex flex-wrap gap-2 mt-3">
-          <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">PHP</span>
-          <span class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
-          <span class="bg-cyan-100 text-cyan-600 text-xs px-2 py-1 rounded">Tailwind</span>
-        </div>
-        <div class="flex gap-4 mt-4 text-sm">
-          <a href="#" class="text-blue-600 hover:underline">Demo</a>
-          <a href="https://share.google/bMMAv6qzI89oOpRah" class="text-gray-700 hover:underline">GitHub</a>
-        </div>
-        </p>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div class="h-48 overflow-hidden">
-        <img src="penjualan3.png" class="w-full h-full object-cover">
-      </div>
-      <div class="p-5">
-        <p class="text-xs text-gray-500">Fullstack Web App PHP Native, MySQL, Tailwind CSS</p>
-        <h3 class="font-semibold text-lg text-gray-800">Penjualan</h3>
-        <p class="text-sm text-gray-600 mt-2">
-          Aplikasi penjualan ini digunakan untuk membantu mengelola aktivitas toko secara lebih terstruktur dan efisien, mulai dari pengelolaan data barang, penambahan produk baru, hingga proses transaksi penjualan. Dengan sistem ini, pengguna dapat memantau stok, mencatat penjualan, dan mengelola data secara terpusat sehingga mengurangi kesalahan pencatatan manual dan mempercepat operasional bisnis.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-3">
-          <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">PHP</span>
-          <span class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
-          <span class="bg-cyan-100 text-cyan-600 text-xs px-2 py-1 rounded">Tailwind</span>
-        </div>
-        <div class="flex gap-4 mt-4 text-sm">
-          <a href="#" class="text-blue-600 hover:underline">Demo</a>
-          <a href="https://share.google/bMMAv6qzI89oOpRah" class="text-gray-700 hover:underline">GitHub</a>
-        </div>
-        </p>
-      </div>
-      </div>
-
-       <!-- CARD 4 -->
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div class="h-48 overflow-hidden">
-        <img src="gaji4.png" class="w-full h-full object-cover">
-      </div>
-      <div class="p-5">
-        <p class="text-xs text-gray-500">Fullstack Web App PHP Native, MySQL, Tailwind CSS</p>
-        <h3 class="font-semibold text-lg text-gray-800">Aplikasi Slip Gaji
-</h3>
-        <p class="text-sm text-gray-600 mt-2">
-Aplikasi ini digunakan untuk mengelola dan menghitung slip gaji karyawan secara sederhana melalui sistem login admin. Pengguna dapat memasukkan data karyawan seperti nama, NIK, jabatan, gaji pokok, lembur, dan potongan, lalu sistem akan otomatis menghitung gaji bersih. Selain itu, aplikasi ini juga menyediakan fitur untuk menampilkan dan mencetak slip gaji sehingga memudahkan proses administrasi penggajian menjadi lebih cepat dan rapi.
-
-        </p>
-        <div class="flex flex-wrap gap-2 mt-3">
-          <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">PHP</span>
-          <span class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
-          <span class="bg-cyan-100 text-cyan-600 text-xs px-2 py-1 rounded">Tailwind</span>
-        </div>
-        <div class="flex gap-4 mt-4 text-sm">
-          <a href="http://localhost/ujikom/index.php" class="text-blue-600 hover:underline">Demo</a>
-          <a href="https://share.google/bMMAv6qzI89oOpRah" class="text-gray-700 hover:underline">GitHub</a>
-        </div>
-        </p>
-      </div>
-      </div>
-         <!-- CARD 5 -->
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div class="h-48 overflow-hidden">
-        <img src="sistem 5.png" class="w-full h-full object-cover">
-      </div>
-      <div class="p-5">
-        <p class="text-xs text-gray-500">Fullstack Web App PHP Native, MySQL, Tailwind CSS</p>
-        <h3 class="font-semibold text-lg text-gray-800">Sistem Inventaris
-</h3>
-        <p class="text-sm text-gray-600 mt-2">
- Aplikasi ini adalah sistem inventaris dan peminjaman barang berbasis web untuk mengelola data barang, stok, dan transaksi peminjaman Mencatat barang dan stok
-Mengelola peminjaman & pengembalian
-Menampilkan statistik dan riwayat.
-
-        </p>
-        <div class="flex flex-wrap gap-2 mt-3">
-          <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">PHP</span>
-          <span class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
-          <span class="bg-cyan-100 text-cyan-600 text-xs px-2 py-1 rounded">Tailwind</span>
-        </div>
-        <div class="flex gap-4 mt-4 text-sm">
-          <a href="http://localhost/ujikom/index.php" class="text-blue-600 hover:underline">Demo</a>
-          <a href="https://share.google/bMMAv6qzI89oOpRah" class="text-gray-700 hover:underline">GitHub</a>
-        </div>
-        </p>
-      </div>
-      </div>
-        <!-- CARD 6 -->
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div class="h-48 overflow-hidden">
-        <img src="nusantara6.png" class="w-full h-full object-cover">
-      </div>
-      <div class="p-5">
-        <p class="text-xs text-gray-500">Fullstack Web App PHP Native, MySQL, Tailwind CSS</p>
-        <h3 class="font-semibold text-lg text-gray-800">Hotel Nusantara
-</h3>
-        <p class="text-sm text-gray-600 mt-2">
- Aplikasi Hotel Nusantara Stay merupakan sistem berbasis web yang digunakan untuk mengelola operasional hotel secara digital. Sistem ini membantu proses pemesanan kamar, pengelolaan data kamar, serta manajemen reservasi tamu agar lebih cepat, rapi, dan terstruktur.
-
-        </p>
-        <div class="flex flex-wrap gap-2 mt-3">
-          <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">PHP</span>
-          <span class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
-          <span class="bg-cyan-100 text-cyan-600 text-xs px-2 py-1 rounded">Tailwind</span>
-        </div>
-        <div class="flex gap-4 mt-4 text-sm">
-          <a href="http://localhost/ujikom/index.php" class="text-blue-600 hover:underline">Demo</a>
-          <a href="https://share.google/bMMAv6qzI89oOpRah" class="text-gray-700 hover:underline">GitHub</a>
-        </div>
-        </p>
-      </div>
-      </div>
-    </div>
+    <button class="scroll-btn" id="scrollRight" onclick="scrollProjects(1)" aria-label="Scroll kanan">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
-  
-  
+
 </section>
+<!-- =============================================
+     END PROJECTS
+     ============================================= -->
+
 <div class="divider"></div>
 
 <section id="contact" class="section">
@@ -1340,53 +1471,37 @@ Menampilkan statistik dan riwayat.
         <div><div class="contact-detail-label">Lokasi</div><div class="contact-detail-val">Kota Bengkulu</div></div>
       </div>
 
-      <!-- ===== SOCIAL MEDIA CARDS IN CONTACT ===== -->
       <p class="social-section-title">Temukan Saya Di</p>
       <div class="social-contact-grid">
         <a href="https://instagram.com/ilhamrai" target="_blank" rel="noopener noreferrer" class="social-contact-card instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           Instagram
         </a>
-        <a href="https://tiktok.com/@ilhamrai" target="_blank" rel="noopener noreferrer" class="social-contact-card tiktok">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.27 8.27 0 004.84 1.55V7.06a4.85 4.85 0 01-1.07-.37z"/>
-          </svg>
+        <a href="https://www.tiktok.com/@ilhamrai.id?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-contact-card tiktok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.27 8.27 0 004.84 1.55V7.06a4.85 4.85 0 01-1.07-.37z"/></svg>
           TikTok
         </a>
-        <a href="https://youtube.com/@ilhamrai" target="_blank" rel="noopener noreferrer" class="social-contact-card youtube">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
+        <a href="https://youtube.com/@ilhamrai-j9e?si=ZhPQCslLolQm0SOa" target="_blank" rel="noopener noreferrer" class="social-contact-card youtube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           YouTube
         </a>
       </div>
-      <!-- ===== END SOCIAL MEDIA CARDS ===== -->
     </div>
   </div>
 </section>
 
 <footer>
-  <!-- ===== FOOTER SOCIAL ICONS ===== -->
   <div class="footer-socials">
-    <a href="https://instagram.com/〆IlhamRai" target="_blank" rel="noopener noreferrer" class="footer-social-btn ig" title="Instagram">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-      </svg>
+    <a href="https://instagram.com/ilhamrai" target="_blank" rel="noopener noreferrer" class="footer-social-btn ig" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     </a>
     <a href="https://tiktok.com/@ilhamrai" target="_blank" rel="noopener noreferrer" class="footer-social-btn tt" title="TikTok">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.27 8.27 0 004.84 1.55V7.06a4.85 4.85 0 01-1.07-.37z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.27 8.27 0 004.84 1.55V7.06a4.85 4.85 0 01-1.07-.37z"/></svg>
     </a>
     <a href="https://youtube.com/@ilhamrai" target="_blank" rel="noopener noreferrer" class="footer-social-btn yt" title="YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
     </a>
   </div>
-  <!-- ===== END FOOTER SOCIAL ===== -->
   <p>© 2026 <span>M. Ilham Rai' Subagja</span> — Dibuat dengan ❤️ dan ☕</p>
 </footer>
 
@@ -1420,6 +1535,48 @@ Menampilkan statistik dan riwayat.
       }, 3000);
     }, 1200);
   }
+
+  /* ── Horizontal scroll logic ── */
+  const track = document.getElementById('projectsTrack');
+  const fill  = document.getElementById('scrollFill');
+  const btnL  = document.getElementById('scrollLeft');
+  const btnR  = document.getElementById('scrollRight');
+
+  function updateScrollUI() {
+    const { scrollLeft, scrollWidth, clientWidth } = track;
+    const max = scrollWidth - clientWidth;
+    const pct = max > 0 ? (scrollLeft / max) * 80 + 5 : 100;
+    fill.style.width = Math.min(pct, 100) + '%';
+    btnL.disabled = scrollLeft <= 2;
+    btnR.disabled = scrollLeft >= max - 2;
+  }
+
+  function scrollProjects(dir) {
+    const cardWidth = track.querySelector('.proj-card').offsetWidth + 20;
+    track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+  }
+
+  track.addEventListener('scroll', updateScrollUI, { passive: true });
+  updateScrollUI();
+
+  /* Drag-to-scroll */
+  let isDown = false, startX, scrollStart;
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.style.userSelect = 'none';
+    startX = e.pageX - track.offsetLeft;
+    scrollStart = track.scrollLeft;
+  });
+  document.addEventListener('mouseup', () => {
+    isDown = false;
+    track.style.userSelect = '';
+  });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollStart - (x - startX);
+  });
 </script>
 </body>
 </html>
