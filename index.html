@@ -807,7 +807,7 @@ footer span{color:var(--gold)}
 
   <div class="scroll-controls">
     <button class="scr-btn" id="scrL" onclick="scrollProj(-1)" aria-label="Kiri">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <svg width="15" heigh,m  poliuhgbnwt="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
     <div class="scr-track"><div class="scr-fill" id="scrFill"></div></div>
     <button class="scr-btn" id="scrR" onclick="scrollProj(1)" aria-label="Kanan">
@@ -964,5 +964,100 @@ track.addEventListener('mousedown',e=>{isDn=true;track.style.userSelect='none';s
 document.addEventListener('mouseup',()=>{isDn=false;track.style.userSelect=''})
 track.addEventListener('mousemove',e=>{if(!isDn)return;e.preventDefault();track.scrollLeft=ss-(e.pageX-track.offsetLeft-sx)})
 </script>
-</body>
+</body>PILIHAN SPESIFIKASI PROYEK
+Setiap kelompok wajib merancang dan membangun sebuah purwarupa (prototipe) sistem
+informasi sederhana. Silahkan diskusikan bersama tim untuk memilih salah satu dari dua opsi
+jalur pengembangan berikut:
+OPSI 1: PROGRAM KONSOL INTERAKTIF (BAHASA C++)
+Merancang aplikasi berbasis teks (Command Line Interface / Console) yang menyimulasikan
+sistem operasional dunia nyata. Proyek ini akan menguji kemampuan logika algoritma
+kelompok dari Modul 1 hingga Modul 4.
+1. Fitur dan Syarat Teknis Wajib:
+● Menu Navigasi Utama: Program harus memiliki menu utama yang terstruktur rapi.
+Pengguna dapat memilih menu dengan memasukkan angka/huruf.
+● Perulangan (Looping): Wajib menggunakan struktur do-while atau while agar program
+tidak langsung keluar/tertutup setelah menyelesaikan satu transaksi. Program hanya akan
+tertutup jika pengguna memilih menu "Keluar".
+● Percabangan (Branching): Wajib menggunakan struktur if-else bersarang (nested if)
+atau switch-case untuk mengeksekusi pilihan menu dan memvalidasi input (contoh:
+menampilkan pesan error jika user memasukkan huruf pada kolom angka).
+● Variabel & Operator: Penggunaan tipe data yang tepat (misal: float atau double untuk
+harga/uang) dan implementasi operator aritmatika yang perhitungan matematisnya akurat.
+● Tampilan Output Terformat: Hasil akhir atau "struk" transaksi harus ditampilkan dengan
+rapi di layar konsol menggunakan tab (\t) dan baris baru (\n atau endl).
+2. Rekomendasi Tema Proyek:
+● Sistem Kasir Kantin / Minimarket: Menghitung total belanjaan, diskon bersyarat (jika
+belanja lebih dari nominal tertentu), dan menghitung uang kembalian.
+● Aplikasi Hitung UKT & KRS: Menghitung estimasi biaya kuliah berdasarkan jalur masuk,
+golongan UKT, dan jumlah SKS yang diambil.
+● Sistem Inventaris Barang: Menu untuk melihat daftar barang, menambah stok masuk,
+dan mengurangi stok keluar.
+● Opsi lainnya (Jika mempunyai tema proyek sendiri).
+OPSI 2: DESAIN ANTARMUKA WEBSITE (HTML, CSS, JAVASCRIPT)
+Merancang tampilan halaman depan (Front-End) dari sebuah website sistem informasi. Proyek
+ini menguji kreativitas desain UI/UX dan penguasaan layout halaman web berdasarkan Modul 6
+dan 7. (Catatan: Website bersifat statis/tidak perlu terhubung ke database).
+1. Fitur dan Syarat Teknis Wajib:
+● Struktur HTML Semantik: Halaman web harus memuat komponen standar seperti
+Header (Navigasi bar), Hero Section (Banner utama), Content/Body (Tabel data, daftar
+list, formulir isian), dan Footer.
+● CSS Layouting & Styling: Wajib menggunakan file CSS (disarankan External CSS)
+untuk mengatur Box Model (Margin, Padding, Border). Dilarang menggunakan tampilan
+HTML bawaan yang kaku.
+● Responsivitas (Web Responsive): Tampilan website tidak boleh hancur apabila diakses
+melalui ukuran layar yang kecil (smartphone). (Gunakan Media Query atau persentase
+width).
+● Interaktivitas JavaScript Dasar: Harus memiliki minimal 2 fitur JavaScript interaktif.
+Contoh: Pop-up Alert saat formulir berhasil dikirim, fungsi validasi form (mencegah user
+mengirim form jika ada kolom yang kosong), atau tombol Dark Mode sederhana.
+● Estetika UI/UX: Pemilihan warna (color palette), jenis font, dan efek animasi sederhana
+(seperti efek hover saat kursor diarahkan ke tombol).
+2. Rekomendasi Tema Proyek:
+● Portal Berita Kampus/Daerah: Menampilkan layout grid berisi artikel berita, sidebar
+kategori berita, dan halaman detail artikel.
+● Company Profile Fakultas/UKM: Halaman profil yang memuat struktur organisasi
+(menggunakan tabel), galeri kegiatan, dan formulir pendaftaran anggota baru.
+● Katalog Produk/Jasa: Website yang menampilkan daftar produk (misal: katalog
+penyewaan kamera atau katalog menu cafe) lengkap dengan gambar dan harga.
+● Tersedia pilihan tema lainnya mulai dari platform informasi pariwisata, portofolio seni
+kreatif, hingga panduan gaya hidup sehat dan olahraga. Selain itu, terdapat opsi untuk
+pengembangan website bertema eksplorasi kuliner dan resep, serta tips kesehatan
+dan kecantikan dan lainnya.
+TAMBAHAN KETENTUAN: POIN PLUS (NILAI TAMBAHAN)
+Bagi kelompok yang mengambil Opsi 2 (Website), akan diberikan Nilai Plus (+) jika tidak hanya
+membuat tampilan statis, tetapi juga berhasil menerapkan konsep CRUD yang terhubung
+langsung dengan Database MySQL (Modul 5).
+Apa itu Konsep CRUD dalam Website?
+CRUD adalah singkatan dari empat fungsi dasar manajemen data yang tersimpan dalam basis
+data. Berikut adalah penjelasan rincinya untuk diterapkan dalam proyek:
+● C - Create (Menambahkan Data):
+○ Penjelasan: Website memiliki formulir input (seperti form pendaftaran atau form
+tambah barang).
+○ Proses: Saat tombol "Simpan" diklik, data yang diketik pengguna di halaman web
+akan dikirim dan tersimpan secara otomatis ke dalam tabel di MySQL.
+● R - Read (Menampilkan Data):
+○ Penjelasan: Website mampu mengambil data yang ada di database dan
+menampilkannya kembali ke halaman web.
+○ Proses: Biasanya ditampilkan dalam bentuk tabel atau kartu informasi (misal: daftar
+berita yang diambil dari database).
+● U - Update (Mengubah Data):
+○ Penjelasan: Website menyediakan fitur untuk menyunting atau memperbaiki data
+yang sudah ada.
+○ Proses: Pengguna bisa mengklik tombol "Edit", mengubah isi data, dan saat disimpan,
+data lama di database akan diperbarui dengan data baru.
+● D - Delete (Menghapus Data):
+○ Penjelasan: Website menyediakan fitur untuk menghapus data yang tidak lagi
+diperlukan.
+○ Proses: Saat tombol "Hapus" diklik, baris data tersebut akan hilang dari tabel MySQL
+secara permanen.
+Mengapa CRUD Mendapatkan Nilai Plus?
+Penerapan CRUD menunjukkan bahwa kelompok Anda mampu mengintegrasikan seluruh
+materi praktikum secara utuh, yaitu:
+● HTML & CSS (Modul 6-7) sebagai antarmuka.
+● MySQL (Modul 5) sebagai penyimpan data.
+● Bahasa Sisi Server (seperti PHP) sebagai jembatan untuk menghubungkan keduanya.
+Catatan untuk Mahasiswa:
+Fitur CRUD ini bersifat opsional. Kelompok yang berhasil mengimplementasikannya dengan
+lancar saat presentasi akan mendapatkan apresiasi nilai yang lebih tinggi dibandingkan
+kelompok yang hanya membuat tampilan website statis biasa.
 </html>
